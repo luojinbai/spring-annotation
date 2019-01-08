@@ -31,20 +31,8 @@ import com.yibai.spring.annotation.bean.Person;
 
  */
 
-/**
-是否延迟加载的判断流程：
-	
-	org.springframework.context.annotation.AnnotationConfigApplicationContext.AnnotationConfigApplicationContext(Class<?>...);
-	org.springframework.context.support.AbstractApplicationContext.refresh();
-	org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(ConfigurableListableBeanFactory);
-	org.springframework.beans.factory.config.ConfigurableListableBeanFactory.preInstantiateSingletons();
-		if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
-		}
- 
- */
-
 //@ComponentScan("com.yibai.spring.annotation")
-//@Configuration
+@Configuration
 public class MainConfigForScope {
 
 	@Bean
