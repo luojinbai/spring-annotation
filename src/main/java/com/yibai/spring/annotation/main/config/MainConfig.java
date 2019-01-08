@@ -13,13 +13,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.ComponentScans;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
 import com.yibai.spring.annotation.bean.Person;
 import com.yibai.spring.annotation.filter.ColorBeanLoadFilter;
 
-@Configuration
+//@Configuration
 //@ComponentScan(basePackageClasses = Address.class)  //扫描单个class文件
 //@ComponentScan(basePackages = "com.yibai.spring.annotation")
 //@ComponentScan(value = { "com.yibai.spring.annotation" }, basePackages = "com.yibai.spring.annotation") //@AliasFor互为别名的属性，两个值的声明两者只能其一，除非声明一样的 值
