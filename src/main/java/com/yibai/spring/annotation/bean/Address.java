@@ -1,5 +1,6 @@
 package com.yibai.spring.annotation.bean;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
@@ -10,7 +11,8 @@ import lombok.ToString;
 @Getter
 @ToString
 @Component
-
+//@Scope(value = "singleton")
+@Scope(value = "prototype")
 public class Address {
 
 	private String country;
