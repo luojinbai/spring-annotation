@@ -11,24 +11,26 @@ package com.yibai.spring.annotation.main.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Import;
 
 import com.yibai.spring.annotation.bean.Person;
 import com.yibai.spring.annotation.condition.CustomTestCondition;
+import com.yibai.spring.annotation.importt.MyImportBeanDefinitionRegistrar;
+import com.yibai.spring.annotation.importt.ImportBean;
+import com.yibai.spring.annotation.importt.ImportConfig;
+import com.yibai.spring.annotation.importt.MyImportSelector;
 
-//@ComponentScan(value = "com.yibai.spring.annotation")
-//@Conditional(value = { CustomTestCondition.class })
-public class MainConfigForCondition {
+import lombok.extern.slf4j.Slf4j;
 
-	/**
-	
-	ConditionContext： 表示的是判断条件能使用的上下文（环境）；
-	AnnotatedTypeMetadata：如果定义在类上的时候，是org.springframework.core.type.StandardAnnotationMetadata对象，表示标记的类的所有注解信息；如果定义在方法上的时候，是org.springframework.core.type.StandardMethodMetadata对象，表示是被标记的方法的信息；
-	
-	 */
+@Import(value = { ImportBean.class, ImportConfig.class, MyImportSelector.class,
+		MyImportBeanDefinitionRegistrar.class })
+@Slf4j
+public class MainConfigForImport {
 
 	@Bean
 	@Conditional(value = { CustomTestCondition.class })
 	public Person person() {
+		log.debug("配置加载： 加载Person");
 		return new Person();
 	}
 

@@ -2,7 +2,7 @@ package com.yibai.spring.annotation.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.yibai.spring.annotation.main.config.MainConfigForCondition;
+import com.yibai.spring.annotation.main.config.MainConfigForImport;
 
 /**
  * Hello world!
@@ -12,7 +12,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				MainConfigForCondition.class);
+				MainConfigForImport.class);
 		String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 		for (String name : beanDefinitionNames) {
 			System.out.println(name + " --> " + applicationContext.getBean(name));

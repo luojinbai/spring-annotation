@@ -6,4 +6,6 @@
 	<bean id="person" class="com.yibai.spring.annotation.bean.Person"
 		scope="prototype" lazy-init="true" />
 
+	<import resource="" />
+
 </beans>
