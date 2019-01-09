@@ -2,8 +2,7 @@ package com.yibai.spring.annotation.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.yibai.spring.annotation.bean.Person;
-import com.yibai.spring.annotation.main.config.MainConfigForScope;
+import com.yibai.spring.annotation.main.config.MainConfigForConditional;
 
 /**
  * Hello world!
@@ -11,21 +10,9 @@ import com.yibai.spring.annotation.main.config.MainConfigForScope;
  */
 public class MainClass {
 
-	/**
-	是否延迟加载的判断流程：
-	
-	org.springframework.context.annotation.AnnotationConfigApplicationContext.AnnotationConfigApplicationContext(Class<?>...);
-	org.springframework.context.support.AbstractApplicationContext.refresh();
-	org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(ConfigurableListableBeanFactory);
-	org.springframework.beans.factory.config.ConfigurableListableBeanFactory.preInstantiateSingletons();
-		if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
-		}
-			
-	 */
-
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				MainConfigForScope.class);
+				MainConfigForConditional.class);
 
 //		Person person = applicationContext.getBean(Person.class);
 //		System.out.println(person);

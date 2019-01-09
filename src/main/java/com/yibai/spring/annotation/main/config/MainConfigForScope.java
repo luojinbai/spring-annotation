@@ -10,7 +10,7 @@
 package com.yibai.spring.annotation.main.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
@@ -27,12 +27,34 @@ import com.yibai.spring.annotation.bean.Person;
 	当Person依赖Address： 
 		当Address是prototype，Person是singleton时，每一次请求Address都是新组装的bean，每一次请求Person的时候，Person是单例的，自然依赖的Address也是同一个；
 		当Address是singleton，Person是prototype时，Person是多例的，但是所有Person依赖的Address是同一个；
-
-
  */
 
-//@ComponentScan("com.yibai.spring.annotation")
-@Configuration
+/**
+是否延迟加载的判断流程：
+
+org.springframework.context.annotation.AnnotationConfigApplicationContext.AnnotationConfigApplicationContext(Class<?>...);
+org.springframework.context.support.AbstractApplicationContext.refresh();
+org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(ConfigurableListableBeanFactory);
+org.springframework.beans.factory.config.ConfigurableListableBeanFactory.preInstantiateSingletons();
+	if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+	}
+		
+ */
+
+/**
+是否延迟加载的判断流程：
+
+org.springframework.context.annotation.AnnotationConfigApplicationContext.AnnotationConfigApplicationContext(Class<?>...);
+org.springframework.context.support.AbstractApplicationContext.refresh();
+org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(ConfigurableListableBeanFactory);
+org.springframework.beans.factory.config.ConfigurableListableBeanFactory.preInstantiateSingletons();
+	if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
+	}
+		
+ */
+
+@ComponentScan("com.yibai.spring.annotation")
+//@Configuration
 public class MainConfigForScope {
 
 	@Bean
