@@ -13,12 +13,6 @@ public class MainClass {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				MainConfigForCondition.class);
-
-//		Person person = applicationContext.getBean(Person.class);
-//		System.out.println(person);
-//
-//		Address address = applicationContext.getBean(Address.class);
-//		System.out.println(address);
 		String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 		for (String name : beanDefinitionNames) {
 			System.out.println(name + " --> " + applicationContext.getBean(name));
