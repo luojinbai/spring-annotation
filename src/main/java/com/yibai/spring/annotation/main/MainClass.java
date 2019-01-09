@@ -2,7 +2,7 @@ package com.yibai.spring.annotation.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.yibai.spring.annotation.main.config.MainConfigForConditional;
+import com.yibai.spring.annotation.main.config.MainConfigForCondition;
 
 /**
  * Hello world!
@@ -12,7 +12,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				MainConfigForConditional.class);
+				MainConfigForCondition.class);
 
 //		Person person = applicationContext.getBean(Person.class);
 //		System.out.println(person);
