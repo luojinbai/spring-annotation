@@ -1,5 +1,12 @@
 package com.yibai.spring.annotation.bean;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -7,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Setter
 @Getter
 @Slf4j
-public class Person {
+public class Person implements InitializingBean, DisposableBean {
 
 	private String name;
 	private int age;
@@ -18,11 +25,31 @@ public class Person {
 	}
 
 	public void init() {
-		log.debug("初始化");
+		log.debug("自定义初始化方法");
 	}
 
 	public void destory() {
-		log.debug("销毁");
+		log.debug("自定义销毁方法");
+	}
+
+	@PostConstruct
+	public void init2() {
+		log.debug("@PostConstruct自定义初始化方法");
+	}
+
+	@PreDestroy
+	public void destory2() {
+		log.debug("@PreDestroy自定义销毁方法");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		log.debug("实现DisposableBean销毁方法");
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		log.debug("实现InitializingBean初始化方法");
 	}
 
 }

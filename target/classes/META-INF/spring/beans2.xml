@@ -4,8 +4,5 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="person" class="com.yibai.spring.annotation.bean.Person"
-		scope="prototype" lazy-init="true" />
-
-	<import resource="" />
-
+		scope="prototype" destroy-method="destory" />
 </beans>
