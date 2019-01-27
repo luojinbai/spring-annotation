@@ -1,10 +1,12 @@
 package com.yibai.spring.annotation.main;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
+import java.util.Arrays;
 
-import com.yibai.spring.annotation.bean.Address;
-import com.yibai.spring.annotation.main.config.MainConfigForValue;
+import javax.sql.DataSource;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.yibai.spring.annotation.main.config.MainConfigForProfile;
 
 /**
  * Hello world!
@@ -13,8 +15,8 @@ import com.yibai.spring.annotation.main.config.MainConfigForValue;
 public class MainClass {
 
 	public static void main(String[] args) throws Exception {
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				MainConfigForValue.class);
+//		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+//				MainConfigForProfile.class);
 
 //		String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 //		for (String name : beanDefinitionNames) {
@@ -40,11 +42,20 @@ public class MainClass {
 //		System.out.println(userService);
 //		System.out.println(userService.getUserDao());
 
-		ConfigurableEnvironment environment = applicationContext.getEnvironment();
-		System.out.println(environment.getProperty("os.name"));
-		
-		Address address = applicationContext.getBean(Address.class);
-		System.out.println(address);
+//		ConfigurableEnvironment environment = applicationContext.getEnvironment();
+//		System.out.println(environment.getProperty("os.name"));
+//
+//		Address address = applicationContext.getBean(Address.class);
+//		System.out.println(address);
+
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+		applicationContext.getEnvironment().setActiveProfiles("test", "dev");
+		applicationContext.register(MainConfigForProfile.class);
+		applicationContext.refresh();
+
+		String[] datasources = applicationContext.getBeanNamesForType(DataSource.class);
+
+		System.out.println(Arrays.asList(datasources));
 
 		applicationContext.close();
 

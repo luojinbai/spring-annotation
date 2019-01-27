@@ -9,9 +9,11 @@ package com.yibai.spring.annotation.main.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 
 @ComponentScan("com.yibai.spring.annotation.bean")
-@PropertySource(value = "classpath:META-INF/*.properties", ignoreResourceNotFound = true)
+//@PropertySource(value = "classpath:META-INF/*.properties", ignoreResourceNotFound = true)
+@PropertySources({ @PropertySource("classpath:/a.properties"), @PropertySource("classpath:b.properties") })
 public class MainConfigForValue {
 
 }
