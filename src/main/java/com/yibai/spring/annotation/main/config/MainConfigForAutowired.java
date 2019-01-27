@@ -9,15 +9,27 @@
 
 package com.yibai.spring.annotation.main.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
+
+import com.yibai.spring.annotation.service.UserDao;
+import com.yibai.spring.annotation.service.UserService;
 
 @ComponentScan("com.yibai.spring.annotation.service")
+@Service
 public class MainConfigForAutowired {
 
 //	@Bean
-//	@Primary
-//	public UserDao userDao100() {
-//		return new UserDao(2);
-//	}
+	public UserService userService(@Autowired UserDao userDao) {
+		UserService userService = new UserService();
+		userService.setUserDao(userDao);
+		return userService;
+	}
+
+//	@Bean
+	public UserDao userDao() {
+		return new UserDao();
+	}
 
 }

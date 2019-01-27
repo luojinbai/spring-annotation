@@ -20,6 +20,7 @@ package com.yibai.spring.annotation.service;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.Getter;
@@ -28,12 +29,21 @@ import lombok.Getter;
 @Service
 public class UserService {
 
-//	@Qualifier(value="userDao3")
-	@Autowired
+	@Qualifier(value = "userDao3")
+	@Autowired(required = true)
 	private UserDao userDao;
 
+	public UserService() {
+		//@Autowired定义在字段或者set方式上，在构造器上无法获取到依赖的组件
+		System.out.println(userDao);
+	}
+
+//	@Autowired
+//	public UserService(@Autowired UserDao userDao) {
+//		this.userDao = userDao;
+//	}
 	public void setUserDao(UserDao userDao) {
-		System.out.println("set userdao");
+//		System.out.println("set userdao");
 		this.userDao = userDao;
 	}
 

@@ -29,7 +29,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 
 @Repository
-@ToString
 @Setter
 @Getter
 @AllArgsConstructor

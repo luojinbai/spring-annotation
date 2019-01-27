@@ -36,6 +36,7 @@ public class MainClass {
 //		System.out.println(bean.getObject());
 
 		UserService userService = applicationContext.getBean(UserService.class);
+		System.out.println(userService);
 		System.out.println(userService.getUserDao());
 
 		applicationContext.close();
