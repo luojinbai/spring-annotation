@@ -1,9 +1,10 @@
 package com.yibai.spring.annotation.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
-import com.yibai.spring.annotation.main.config.MainConfigForAutowired;
-import com.yibai.spring.annotation.service.UserService;
+import com.yibai.spring.annotation.bean.Address;
+import com.yibai.spring.annotation.main.config.MainConfigForValue;
 
 /**
  * Hello world!
@@ -13,7 +14,7 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-				MainConfigForAutowired.class);
+				MainConfigForValue.class);
 
 //		String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 //		for (String name : beanDefinitionNames) {
@@ -35,9 +36,15 @@ public class MainClass {
 //		PersonFactoryBean bean = (PersonFactoryBean) applicationContext.getBean("&person2");
 //		System.out.println(bean.getObject());
 
-		UserService userService = applicationContext.getBean(UserService.class);
-		System.out.println(userService);
-		System.out.println(userService.getUserDao());
+//		UserService userService = applicationContext.getBean(UserService.class);
+//		System.out.println(userService);
+//		System.out.println(userService.getUserDao());
+
+		ConfigurableEnvironment environment = applicationContext.getEnvironment();
+		System.out.println(environment.getProperty("os.name"));
+		
+		Address address = applicationContext.getBean(Address.class);
+		System.out.println(address);
 
 		applicationContext.close();
 
