@@ -18,6 +18,8 @@ public class Person implements InitializingBean, DisposableBean {
 
 	private String name;
 	private int age;
+
+	@Resource
 	private Address address;
 
 	public Person() {

@@ -12,6 +12,7 @@ package com.yibai.spring.annotation.main.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.yibai.spring.annotation.bean.Address;
 import com.yibai.spring.annotation.bean.Person;
 
 @Configuration
@@ -22,9 +23,13 @@ public class MainConfigForLifeCycle {
 		return new Person();
 	}
 
-//	@Bean
-//	public PersonFactoryBean person2() {
-//		return new PersonFactoryBean();
-//	}
+	/**
+	@Bean public PersonFactoryBean person2() { return new PersonFactoryBean(); }
+	 */
+
+	@Bean
+	public Address address() {
+		return new Address();
+	}
 
 }
