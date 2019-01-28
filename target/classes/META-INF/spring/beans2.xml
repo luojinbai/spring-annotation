@@ -5,4 +5,13 @@
 
 	<bean id="person" class="com.yibai.spring.annotation.bean.Person"
 		scope="prototype" destroy-method="destory" />
+
+
+	<bean id="address"
+		class="com.yibai.spring.annotation.bean.Address">
+		<property name="country" value="china"></property>
+		<property name="province" value="zhej"></property>
+		<property name="detail" value="${address.detail}"></property>
+	</bean>
+
 </beans>
