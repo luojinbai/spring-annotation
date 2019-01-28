@@ -1,12 +1,9 @@
 package com.yibai.spring.annotation.main;
 
-import java.util.Arrays;
-
-import javax.sql.DataSource;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.yibai.spring.annotation.main.config.MainConfigForProfile;
+import com.yibai.spring.annotation.aop.Calculator;
+import com.yibai.spring.annotation.main.config.MainConfigForAop;
 
 /**
  * Hello world!
@@ -15,8 +12,8 @@ import com.yibai.spring.annotation.main.config.MainConfigForProfile;
 public class MainClass {
 
 	public static void main(String[] args) throws Exception {
-//		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
-//				MainConfigForProfile.class);
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+				MainConfigForAop.class);
 
 //		String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 //		for (String name : beanDefinitionNames) {
@@ -48,14 +45,16 @@ public class MainClass {
 //		Address address = applicationContext.getBean(Address.class);
 //		System.out.println(address);
 
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-		applicationContext.getEnvironment().setActiveProfiles("test", "dev");
-		applicationContext.register(MainConfigForProfile.class);
-		applicationContext.refresh();
+//		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+//		applicationContext.getEnvironment().setActiveProfiles("test", "dev");
+//		applicationContext.register(MainConfigForProfile.class);
+//		applicationContext.refresh();
+//
+//		String[] datasources = applicationContext.getBeanNamesForType(DataSource.class);
+//		System.out.println(Arrays.asList(datasources));
 
-		String[] datasources = applicationContext.getBeanNamesForType(DataSource.class);
-
-		System.out.println(Arrays.asList(datasources));
+		Calculator calculator = applicationContext.getBean(Calculator.class);
+		System.out.println(calculator.div(10, 2));
 
 		applicationContext.close();
 
