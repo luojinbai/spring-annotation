@@ -54,7 +54,7 @@ public class MainClass {
 //		System.out.println(Arrays.asList(datasources));
 
 		Calculator calculator = applicationContext.getBean(Calculator.class);
-		System.out.println(calculator.div(10, 2));
+		System.out.println("结果： " + calculator.div(10, 0));
 
 		applicationContext.close();
 
