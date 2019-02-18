@@ -13,7 +13,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import com.yibai.spring.annotation.aop.Calculator;
 import com.yibai.spring.annotation.aop.CalculatorAspect;
 
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy //开启基于注解的aop模式
 public class MainConfigForAop {
 
 	@Bean
