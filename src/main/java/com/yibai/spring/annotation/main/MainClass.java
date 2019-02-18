@@ -52,7 +52,7 @@ public class MainClass {
 //
 //		String[] datasources = applicationContext.getBeanNamesForType(DataSource.class);
 //		System.out.println(Arrays.asList(datasources));
-
+		
 		Calculator calculator = applicationContext.getBean(Calculator.class);
 		System.out.println(calculator.div(10, 2));
 

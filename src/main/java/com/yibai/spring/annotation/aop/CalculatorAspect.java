@@ -13,6 +13,9 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class CalculatorAspect {
 
+	public CalculatorAspect() {
+	}
+
 	@Pointcut(value = "execution(public int com.yibai.spring.annotation.aop.Calculator.*(..))")
 	public void pointCutCalculator() {
 	}
